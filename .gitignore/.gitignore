@@ -1,0 +1,76 @@
+#include <stdio.h>
+int main()
+{
+	int Y,M,D,y,m,d,pd,pm,py;
+	printf("Enter Today's Date! yyyy-mm-dd");
+	scanf("%d %d %d",&Y,&M,&D);
+	
+	printf("Enter Date of Birth! YYYY-MM-DD");
+	scanf("%d %d %d", &y,&m,&d);
+	
+	if (D<d && M<m) {
+		M=M+12;
+		y=y+1;
+		if (m==4||m==6||m==9||m==10) {
+			D=D+30;
+		    m=m+1;
+		}
+		else if (m==2) {
+			if (y%4==0) {
+				D=D+29;
+				m=m+1;
+			}
+			else{
+				D=D+28;
+				m=m+1;
+		
+				}
+				
+		}
+		else {
+			D=D+31;
+			m=m+1;
+		}
+	}
+		else if (D<d) {
+			if(m==4||m==6||m==9||m==10) {
+			D=D+30;
+		    m=m+1;
+		}
+		else if(m==2) {
+			if(y%4==0) {
+				D=D+29;
+				m=m+1;
+			}
+			else{
+				D=D+28;
+				m=m+1;
+			}
+		
+		}
+		
+		else {
+			D=D+31;
+			m=m+1;
+		}
+		}
+		
+		else if (M<m && d==D) {
+			M=M+12;
+			y=y+1;
+			D=D+1;
+			
+		}
+		
+	else if (D==d && M==m) {
+		py=Y-y;
+		pm=M-m;
+		pd=D-d;
+	}
+		py=Y-y;
+		pm=M-m;
+		pd=D-d;
+	
+	printf("Year=%d,Month=%d,Day=%d\n",py,pm,pd);
+	return 0;
+}
